@@ -35,23 +35,35 @@ int main()
         coeff.close();
     }
     else cout << "Unable to open file.";
+    //cout << num[0] << " " << num[199] << "\n";
+    bool found = false;
 
     for (int i = 0; i < fLength; i++) 
     {
         for (int j = 0; j < fLength; j++)
         {
-            if (num[i] + num[j] == 2020) {
-                mult = num[i] * num[j];
-            }
-            else
+            
+
+            if (i == j) 
             {
-                cout << "No values add up to 2020.";
+                continue;
             }
+            else if (num[i] + num[j] == 2020) 
+            {
+                mult = num[i] * num[j];
+                //cout << num[i] << " " << num[j] << "\n";
+                cout << mult;
+                found = true;
+            }
+           
         }
     }
 
-    cout << mult;
-
+     if(!found)
+            {
+            cout << "\n" << "No values add up to 2020." << "\n";
+            return 0;
+            }
     return 0;
 }
 
