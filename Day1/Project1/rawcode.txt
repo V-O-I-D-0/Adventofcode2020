@@ -1,0 +1,58 @@
+// Advent of code 2020: Day 1, Challenge 1
+
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{  
+    string inP;
+    vector<int>num;
+    string file;
+    int mult;
+
+    cout << "Enter filename here: ";
+    cin >> file;
+
+    int fLength = 0;
+    
+    ifstream coeff(file);
+    if (coeff.is_open())
+    {
+        string line;
+        getline(coeff, line);
+
+        while (!coeff.eof()) //while not at the end...
+        {
+            getline(coeff, inP, '\n');
+            num.push_back(stof(inP));
+
+            fLength += 1;
+        }
+        coeff.close();
+    }
+    else cout << "Unable to open file.";
+
+    for (int i = 0; i < fLength; i++) 
+    {
+        for (int j = 0; j < fLength; j++)
+        {
+            if (num[i] + num[j] == 2020) {
+                mult = num[i] * num[j];
+            }
+            else
+            {
+                cout << "No values add up to 2020.";
+            }
+        }
+    }
+
+    cout << mult;
+
+    return 0;
+}
+
+
