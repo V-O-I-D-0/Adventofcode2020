@@ -1,1 +1,1 @@
-All files require visual studio 2019 to run, no dlls included. Sorry :(
+
